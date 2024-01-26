@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const CartItems = () => {
     
-    const {getTotalCartAmount,all_product, cartItems, removeFromCart} = useContext(ShopContext);
+    const {getTotalCartAmount,all_product, cartItems, removeFromCart, removeAllFromCart} = useContext(ShopContext);
 
     const sendEmail = async () => {
         try {
@@ -66,8 +66,9 @@ const CartItems = () => {
                     </div>
                 </div>
                 <Link to={'/thanks'}>
-                <button onClick={sendEmail}>Proceed to checkout</button>
+                <button onClick={() => {sendEmail(); removeAllFromCart()}}>Proceed to checkout</button>
                 </Link>
+                {/* <button onClick={removeAllFromCart}>Eli</button> */}
             </div>
             <div className="cartitems-promocode">
                 <p>If you have a promo code, Enter it here</p>

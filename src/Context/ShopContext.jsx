@@ -62,6 +62,23 @@ const ShopContextProvider = (props) => {
         }
     }
 
+    const removeAllFromCart = () => {
+        setCartitems(getDefaultCart());
+        if(localStorage.getItem('auth-token')){
+            fetch('http://localhost:4000/api/products/removeallfromcart',{
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: '',
+            })
+            .then((resp) => resp.json())
+            .then((data) => console.log(data));
+        }
+    }
+
 
 
     const getTotalCartAmount = () => {
@@ -89,7 +106,7 @@ const ShopContextProvider = (props) => {
         return totalItem
     }
     
-    const contextValue = {all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount, getTotalCartItems};
+    const contextValue = {all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount, getTotalCartItems, removeAllFromCart};
 
     return (
         <ShopContext.Provider value={contextValue}>
