@@ -1,0 +1,22 @@
+.cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 10px;
+}
+
+.gracias{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.volver{
+    text-decoration: none;
+    color: gray;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+}
